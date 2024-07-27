@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block preloader %}
+<section class="preloader">
+            <div class="spinner">
+                <span class="sk-inner-circle">Majmau Old Students</span>
+            </div>
+</section>
+{% endblock preloader %}
+{% block navbar %}
+{% include 'navbar.html' %}
+{% endblock navbar %}
+
+{% block condent %}
+{% include 'main_slide.html' %}
+{% include 'condent.html' %}
+{% endblock condent %}
+
+{% block footer %}
+{% include 'footer.html' %}
+{% endblock footer %}
