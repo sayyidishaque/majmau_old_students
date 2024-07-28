@@ -95,7 +95,7 @@ def sign_in(request):
             if user is not None:
                 # Log the user in
                 login(request, user)
-                
+
                 students = OldStudents.objects.all()
                 context = {
                     'students': students
