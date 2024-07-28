@@ -5,34 +5,146 @@
 
                         <div class="col-lg-8 mx-auto col-12">
 
-                            <h1 class="hero-title text-center mb-5">Registration</h1>
+                            <h5 class="hero-title text-center mb-5">Majmaussunna Old Students Registration</h5>
 
 
 
 
-
+<!--                            form-->
                             <div class="row">
+                                 {% if messages %}
+                                        <div class="messages">
+                                            {% for message in messages %}
+                                            <div class="alert alert-{{ message.tags }}">
+                                                {{ message }}
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        {% endif %}
                                 <div class="col-lg-8 col-11 mx-auto">
-                                    <form role="form" method="post">
+                                    <form role="form" method="post" action="{% url 'registration' %}"><br><br>
+<!--                                        name-->
+                                        {% csrf_token %}
+                                        <div class="form-floating">
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="Name" required="">
 
+                                            <label for="name">Name</label>
+                                        </div><br>
+
+<!--                                        place-->
+                                        <div class="form-floating">
+                                            <input type="text" name="place" id="place" class="form-control" placeholder="Place" required="">
+
+                                            <label for="place">Place</label>
+                                        </div><br>
+
+<!--                                        address-->
+                                        <div class="form-floating">
+                                            <textarea name="address" id="address" class="form-control" rows="4" cols="50" placeholder=""></textarea>
+
+                                            <label for="address">Address</label>
+                                        </div><br>
+<!--                                            post-->
+                                        <div class="form-floating">
+                                            <input type="text" name="post" id="post" class="form-control" placeholder="Post" required="">
+
+                                            <label for="post">Post</label>
+                                        </div><br>
+<!--                                        pin-->
+                                        <div class="form-floating">
+                                            <input type="text" name="pin" id="pin" class="form-control" placeholder="Pin" required="">
+
+                                            <label for="pin">Pin</label>
+                                        </div><br>
+<!--                                        phone-->
+                                        <div class="form-floating">
+                                            <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone" required="">
+
+                                            <label for="phone">Phone</label>
+                                        </div><br>
+<!--                                        district-->
+                                        <div class="form-floating">
+                                            <input type="text" name="district" id="district" class="form-control" placeholder="District" required="">
+
+                                            <label for="District">District</label>
+                                        </div><br>
+<!--                                        state-->
+                                        <div class="form-floating">
+                                            <input type="text" name="state" id="state" class="form-control" placeholder="State" required="">
+
+                                            <label for="state">State</label>
+                                        </div><br>
+<!--                                        date of birth-->
+                                        <div class="form-floating">
+                                            <input type="date" name="db" id="db" class="form-control" placeholder="Date of Birth" required="">
+
+                                            <label for="db">Date of Birth</label>
+                                        </div><br>
+<!--                                        whatsapp-->
+                                        <div class="form-floating">
+                                            <input type="number" name="whatsapp" id="whatsapp" class="form-control" placeholder="WhatsApp No." required="">
+
+                                            <label for="pin">WhatsApp No.</label>
+                                        </div><br>
+<!--                                        date of admission-->
+                                        <div class="form-floating">
+                                            <input type="date" name="da" id="da" class="form-control" placeholder="Date of Admission" required="">
+
+                                            <label for="da">Date of Admission</label>
+                                        </div><br>
+<!--                                          date of leaving  -->
+                                        <div class="form-floating">
+                                            <input type="date" name="dl" id="dl" class="form-control" placeholder="Course Completed Date From Majmau" required="">
+
+                                            <label for="dl">Course Completed (From Majmau)</label>
+                                        </div><br>
+<!--                                        qualification-->
+                                        <div class="form-floating">
+                                            <input type="text" name="qualification" id="qualification" class="form-control" placeholder="Educational Qualification" required="">
+
+                                            <label for="qualification">Educational Qualification</label>
+                                        </div><br>
+<!--                                        islamic qualificaion-->
+                                        <div class="form-floating">
+                                            <input type="text" name="qualificationis" id="qualificationis" class="form-control" placeholder="Educational Qualification (Islamic)" required="">
+
+                                            <label for="qualificationis">Educational Qualification (Islamic)</label>
+                                        </div><br>
+<!--                                        membership id                                        -->
+                                        <div class="form-floating">
+                                            <input type="text" name="membership_id" id="membership_id" class="form-control" placeholder="Membership ID (SSF, SYS, KMJ) No." required="">
+
+                                            <label for="membership_id">Membership No:</label>
+                                        </div><br>
+<!--                                        unit-->
+                                        <div class="form-floating">
+                                            <input type="text" name="unit" id="unit" class="form-control" placeholder="Unit" required="">
+
+                                            <label for="unit">Unit</label>
+                                        </div><br>
+<!--                                        sector-->
+                                        <div class="form-floating">
+                                            <input type="text" name="sector" id="sector" class="form-control" placeholder="Sector/Circle" required="">
+
+                                            <label for="sector">Sector/Circle</label>
+                                        </div><br>
+<!--                                        division-->
+                                        <div class="form-floating">
+                                            <input type="text" name="division" id="division" class="form-control" placeholder="Division/Zone" required="">
+
+                                            <label for="division">Division/Zone</label>
+                                        </div><br>
+<!--                                        holding place in organisation-->
+                                        <div class="form-floating">
+                                            <input type="text" name="holding" id="holding" class="form-control" placeholder="Place Holding in Organisation" required="">
+
+                                            <label for="holding">The Place Holding in Organisation</label>
+                                        </div><br>
+<!--                                        email-->
                                         <div class="form-floating">
                                             <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
 
                                             <label for="email">Email address</label>
-                                        </div>
-
-                                        <div class="form-floating my-4">
-                                            <input type="password" name="password" id="password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Password" required="">
-
-                                            <label for="password">Password</label>
-
-
-                                        </div>
-
-                                        <div class="form-floating">
-                                            <input type="password" name="confirm_password" id="confirm_password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Password" required="">
-
-                                            <label for="confirm_password">Password Confirmation</label>
                                         </div>
 
                                         <button type="submit" class="btn custom-btn form-control mt-4 mb-3">

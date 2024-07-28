@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block navbar %}
+{% include 'navbar.html' %}
+{% endblock navbar %}
+
+
+<!-- list.html -->
+
+{% block head %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+{% endblock head %}\
+{% block condent %}
+<body style="background-color:lightgray;">
+    <h3 style="color:blue; text-align:center;">Registered Students List</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Place</th>
+<!--                <th>Address</th>-->
+<!--                <th>Post</th>-->
+<!--                <th>Pin</th>-->
+                <th>Phone</th>
+                <th>District</th>
+                <th>State</th>
+<!--                <th>Date of Birth</th>-->
+                <th>WhatsApp</th>
+                <th>Email</th>
+<!--                <th>Date of Admission</th>-->
+<!--                <th>Date Left</th>-->
+                <th>Qualification</th>
+                <th>Islamic</th>
+<!--                <th>Member ID</th>-->
+<!--                <th>Unit</th>-->
+<!--                <th>Sector</th>-->
+<!--                <th>Division</th>-->
+<!--                <th>Place Holding</th>-->
+                <th>Submitted Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.place }}</td>
+<!--                <td>{{ student.address }}</td>-->
+<!--                <td>{{ student.post }}</td>-->
+<!--                <td>{{ student.pin }}</td>-->
+                <td>{{ student.phone }}</td>
+                <td>{{ student.district }}</td>
+                <td>{{ student.state }}</td>
+<!--                <td>{{ student.date_of_birth }}</td>-->
+                <td>{{ student.whatsapp }}</td>
+                <td>{{ student.email }}</td>
+<!--                <td>{{ student.date_admission }}</td>-->
+<!--                <td>{{ student.date_left }}</td>-->
+                <td>{{ student.qualification }}</td>
+                <td>{{ student.is_qualification }}</td>
+<!--                <td>{{ student.member_id }}</td>-->
+<!--                <td>{{ student.unit }}</td>-->
+<!--                <td>{{ student.sector }}</td>-->
+<!--                <td>{{ student.division }}</td>-->
+<!--                <td>{{ student.place_holding }}</td>-->
+                <td>{{ student.date_created }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="21">No students registered yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <div style="text-align:right;"><a href="{% url 'export' %}" class="btn btn-success">Export to Excel</a></div>
+
+</body>
+{% endblock condent %}
+
+
