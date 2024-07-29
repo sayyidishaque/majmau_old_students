@@ -1,10 +1,24 @@
-
+import os
 
 from django.db import models
 from django.utils import timezone
+from django.utils.text import slugify
 
 
 # Create your models here.
+
+def custom_upload_to(instance, filename):
+    # Extract the file extension
+    ext = filename.split('.')[-1]
+
+    # Generate the filename using the student's name and primary key
+    # Slugify the name to ensure it's URL-safe
+    # Include the primary key to avoid conflicts
+    filename = f"{slugify(instance.name)}-{instance.pk}.{ext}"
+
+    # Return the full path to the file
+    return os.path.join('images', filename)
+
 
 class OldStudents(models.Model):
     name = models.CharField(max_length=100)
@@ -27,6 +41,7 @@ class OldStudents(models.Model):
     sector = models.CharField(max_length=50)
     division = models.CharField(max_length=50)
     place_holding = models.CharField(max_length=50)
+    image = models.FileField(upload_to=custom_upload_to, null=True, blank=True)
     date_created = models.DateField(auto_now_add=True)
 
     def __str__(self):

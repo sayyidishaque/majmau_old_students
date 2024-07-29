@@ -112,7 +112,7 @@
                                         </div><br>
 <!--                                        membership id                                        -->
                                         <div class="form-floating">
-                                            <input type="text" name="membership_id" id="membership_id" class="form-control" placeholder="Membership ID (SSF, SYS, KMJ) No." required="">
+                                            <input type="text" name="membership_id" id="membership_id" class="form-control" placeholder="Membership ID (KMJ, SYS & SSF) No." required="">
 
                                             <label for="membership_id">Membership No:</label>
                                         </div><br>
@@ -145,8 +145,13 @@
                                             <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
 
                                             <label for="email">Email address</label>
+                                        </div><br><br>
+<!--                                      photo field-->
+                                        <div class="form-floating">
+                                            <input type="file" name="img" id="img" class="form-control" required="">
+                                            <label for="img">-------------------Upload Your Photo here</label>
                                         </div>
-
+                                        <br><br>
                                         <button type="submit" class="btn custom-btn form-control mt-4 mb-3">
                                             Submit
                                         </button>

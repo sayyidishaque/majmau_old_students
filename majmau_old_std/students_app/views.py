@@ -38,6 +38,7 @@ def registration(request):
             sector = request.POST.get('sector')
             division = request.POST.get('division')
             place_holding = request.POST.get('holding')
+            img = request.POST.get('img')
 
             # Check if email already exists
             if OldStudents.objects.filter(email=email).exists():
@@ -65,7 +66,8 @@ def registration(request):
                     sector=sector,
                     division=division,
                     place_holding=place_holding,
-                    date_created=timezone.now()
+                    date_created=timezone.now(),
+                    image=img
                 )
 
                 # Add a success message
